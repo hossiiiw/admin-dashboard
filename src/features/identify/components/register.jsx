@@ -1,6 +1,15 @@
 import logo from "@assets/images/logo.svg";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import {
+  Link,
+  useActionData,
+  useNavigate,
+  useNavigation,
+  useRouteError,
+  useSubmit,
+} from "react-router-dom";
+import { httpService } from "../../../core/https-service";
+import { useEffect } from "react";
 export const Register = () => {
   const {
     register,
@@ -9,9 +18,31 @@ export const Register = () => {
     formState: { errors },
   } = useForm();
 
+  const sumbitForm = useSubmit();
   const onSubmitForm = (data) => {
-    console.log(data);
+    const { confirmPassword, ...userData } = data;
+    sumbitForm(userData, { method: "post" });
   };
+
+  // for spinner
+  const navigation = useNavigation();
+  const isSubmetting = navigation.state !== "idle";
+  // for show alert
+  const isSuccessOperation = useActionData();
+
+  //for redirect manually
+  const navigate = useNavigate();
+
+  //for handle error
+  const isError = useRouteError();
+
+  useEffect(() => {
+    if (isSuccessOperation) {
+      setTimeout(() => {
+        navigate("/login");
+      }, 2000);
+    }
+  }, [isSuccessOperation]);
   return (
     <>
       <div className="text-center mt-4">
@@ -114,9 +145,27 @@ export const Register = () => {
               </div>
 
               <div className="text-center mt-3">
-                <button className="btn btn-lg btn-primary" type="sumbit">
-                  وارد شوید
+                <button
+                  disabled={isSubmetting}
+                  className="btn btn-lg btn-primary"
+                  type="sumbit"
+                >
+                  {isSubmetting ? "درحال انجام عملیات" : "وارد شوید"}
                 </button>
+
+                {isSuccessOperation && (
+                  <div className="alert alert-success text-success p-2 mt-3">
+                    عملیات با موفقیت انحام شد به صفحه ورود منتقل می شوید
+                  </div>
+                )}
+
+                {isError && (
+                  <div className="alert alert-danger text-danger py-2 px-4 mt-3">
+                    {isError.response?.data.map((error) => {
+                      return <p>{error.description}</p>;
+                    })}
+                  </div>
+                )}
               </div>
             </form>
           </div>
@@ -124,4 +173,11 @@ export const Register = () => {
       </div>
     </>
   );
+};
+
+export const registerAction = async ({ request }) => {
+  const formData = await request.formData();
+  const data = Object.fromEntries(formData); // swap key/value to object
+  const response = await httpService.post("/Users", data);
+  return response.status === 200;
 };

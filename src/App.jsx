@@ -1,20 +1,10 @@
-import { Login } from "./features/identify/components/login";
-import { Register } from "./features/identify/components/register";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { IdentityLayout } from "./layout/identity-layout";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./router";
 
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route element={<IdentityLayout />}>
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-          </Route>
-          <Route path="*" />
-        </Routes>
-      </BrowserRouter>
+      <RouterProvider router={router} />
     </>
   );
 }
