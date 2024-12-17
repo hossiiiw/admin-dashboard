@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import { httpService } from "../../../core/https-service";
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 export const Register = () => {
   const {
     register,
@@ -36,6 +37,8 @@ export const Register = () => {
   //for handle error
   const isError = useRouteError();
 
+  //multi language
+  const { t } = useTranslation();
   useEffect(() => {
     if (isSuccessOperation) {
       setTimeout(() => {
@@ -47,14 +50,12 @@ export const Register = () => {
     <>
       <div className="text-center mt-4">
         <img src={logo} alt="logo" style={{ height: "100px" }} />
-        <h1 className="h2">پلتفرم آموزش آنلاین</h1>
+        <h1 className="h2">{t("register.registerName")}</h1>
+        <p className="lead">{t("register.registerTitle")}</p>
         <p className="lead">
-          جهت ورود لازم است از طریق موبایل و رمز عبور خود اقدام کنید
-        </p>
-        <p className="lead">
-          قبلا ثبت نام ن کرده اید؟
+          {t("register.registerLogIn")}
           <Link to="/login" className="me-2">
-            وارد شوید
+            {t("register.registerLog")}
           </Link>
         </p>
       </div>
@@ -65,14 +66,16 @@ export const Register = () => {
             <form onSubmit={handleSubmit(onSubmitForm)}>
               {/*  */}
               <div className="mb-3">
-                <label htmlFor="form-label">موبایل</label>
+                <label htmlFor="form-label">
+                  {t("register.registerMobile")}
+                </label>
                 <input
                   type="tel"
                   className={`form-control form-control-lg mt-2 ${
                     errors.mobile && "is-invalid"
                   }`}
                   {...register("mobile", {
-                    required: "شماره موبایل صحیح نمی باشد",
+                    required: `${t("register.registerMobileError1")}`,
                     minLength: 11,
                     maxLength: 11,
                   })}
@@ -86,20 +89,22 @@ export const Register = () => {
                   (errors.mobile.type === "minLength" ||
                     errors.mobile.type === "maxLength") && (
                     <p className="text-danger small fw-bold mt-2">
-                      شماره موبایل باید 11 رقمی باشد
+                      {t("register.registerMobileError2")}
                     </p>
                   )}
               </div>
               {/*  */}
               <div className="mb-3">
-                <lable className="fomr-label">رمز عبور</lable>
+                <lable className="fomr-label">
+                  {t("register.registerPassword")}
+                </lable>
 
                 <input
                   type="password"
                   className="form-control form-control-lg mt-2"
                   {...register("password", {
-                    required: "پسورد صحیح نمی باشد",
-                    minLength: 12,
+                    required: `${t("register.registerPasswordError1")}`,
+                    minLength: 11,
                   })}
                 />
 
@@ -111,21 +116,23 @@ export const Register = () => {
 
                 {errors.password && errors.password.type === "minLength" && (
                   <p className="text-danger small fw-bold mt-2">
-                    رمز وارد شده کوتاه است
+                    {t("register.registerPasswordError2")}
                   </p>
                 )}
               </div>
               {/*  */}
               <div className="mb-3">
-                <lable htmlFor="form-label">تکرار رمز عبور</lable>
+                <lable htmlFor="form-label">
+                  {t("register.registerConfirm")}
+                </lable>
                 <input
                   type="password"
                   className="form-control form-control-lg"
                   {...register("confirm", {
-                    required: "تکرار رمز عبور الزامی است",
+                    required: `${t("register.registerConfirmError1")}`,
                     validate: (value) => {
                       if (watch("password") !== value) {
-                        return "رمز عبور با تکرار رمز عبور مطابقت ندارد";
+                        return t("register.registerConfirmError2");
                       }
                     },
                   })}
@@ -150,7 +157,8 @@ export const Register = () => {
                   className="btn btn-lg btn-primary"
                   type="sumbit"
                 >
-                  {isSubmetting ? "درحال انجام عملیات" : "وارد شوید"}
+                  {t("register.registerBtn")}
+                  {/* {isSubmetting ? "درحال انجام عملیات" : "وارد شوید"} */}
                 </button>
 
                 {isSuccessOperation && (

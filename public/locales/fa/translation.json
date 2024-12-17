@@ -1,0 +1,18 @@
+{
+  "register": {
+    "registerBtn": "ثبت نام کنید",
+    "registerName": "پلتفرم آموزش آنلاین",
+    "registerTitle": "جهت ورود لازم است از طریق موبایل و رمز عبور خود اقدام کنید",
+    "registerLogIn": "قبلا ثبت نام کرده اید؟",
+    "registerLog": "وارد شوید",
+    "registerMobile": "موبایل",
+    "registerPassword": "رمز عبور",
+    "registerConfirm": "تکرار رمز عبور",
+    "registerMobileError1": "شماره موبایل صحیح نمی باشد",
+    "registerMobileError2": "شماره موبایل باید 11 رقمی باشد",
+    "registerPasswordError1": "پسورد صحیح نمی باشد",
+    "registerPasswordError2": "رمز وارد شده کوتاه است",
+    "registerConfirmError1": "تکرار رمز عبور الزامی است",
+    "registerConfirmError2": "رمز عبور با تکرار رمز عبور مطابقت ندارد"
+  }
+}

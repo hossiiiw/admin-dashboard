@@ -1,0 +1,18 @@
+{
+  "register": {
+    "registerBtn": "register",
+    "registerName": "Online education platform",
+    "registerTitle": "To log in, you need to use your mobile phone and password",
+    "registerLogIn": "Not registered yet?",
+    "registerLog": "Login",
+    "registerMobile": "Mobile",
+    "registerPassword": "Password",
+    "registerConfirm": "Confirm Password",
+    "registerMobileError1": "The mobile number is not correct",
+    "registerMobileError2": "Mobile number must be 11 digits",
+    "registerPasswordError1": "The password is not correct",
+    "registerPasswordError2": "The entered password is short",
+    "registerConfirmError1": "Repeat password is required",
+    "registerConfirmError2": "Password does not match password repeat"
+  }
+}
