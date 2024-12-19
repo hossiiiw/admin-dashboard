@@ -42,7 +42,7 @@ export const Register = () => {
   useEffect(() => {
     if (isSuccessOperation) {
       setTimeout(() => {
-        navigate("/login");
+        navigate("/");
       }, 2000);
     }
   }, [isSuccessOperation]);
@@ -54,7 +54,7 @@ export const Register = () => {
         <p className="lead">{t("register.registerTitle")}</p>
         <p className="lead">
           {t("register.registerLogIn")}
-          <Link to="/login" className="me-2">
+          <Link to="/" className="me-2">
             {t("register.registerLog")}
           </Link>
         </p>
