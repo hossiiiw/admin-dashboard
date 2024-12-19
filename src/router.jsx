@@ -8,6 +8,7 @@ import {
 import { MainLayout } from "./layout/mainLayout";
 import { Courses } from "./pages/courses";
 
+
 export const router = createBrowserRouter([
   {
     path: "/",

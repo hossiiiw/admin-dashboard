@@ -35,17 +35,9 @@ export const AppProvider = ({ children }) => {
     document.body.dataset.direction = state.language === "fa" ? "rtl" : "ltr";
   }, [state.language]);
 
-  //change theme useEffect
+  //change theme in localStorage
   useEffect(() => {
     localStorage.setItem("theme", state.theme);
-    const localTheme = localStorage.getItem("theme");
-    if (localTheme === "light") {
-      document.body.classList.add("bg-dark");
-      document.body.classList.remove("bg-light");
-    } else {
-      document.body.classList.add("bg-light");
-      document.body.classList.remove("bg-dark");
-    }
   }, [state.theme]);
   return (
     <Appcontext.Provider value={{ ...state, changeLanguage, changeTheme }}>

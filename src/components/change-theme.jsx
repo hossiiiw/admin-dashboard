@@ -9,7 +9,6 @@ export const ChangeTheme = () => {
 
   const chnageThemeHandler = (theme) => {
     changeTheme(theme === "light" ? "dark" : "light");
-    console.log(theme);
   };
   return (
     <>
