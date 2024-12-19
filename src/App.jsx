@@ -6,7 +6,7 @@ import { useAppContext } from "./context/app/app-context";
 import { useEffect } from "react";
 
 function App() {
-  const { theme } = useAppContext();
+  const { language, theme } = useAppContext();
 
   useEffect(() => {
     const head = document.head;
@@ -14,10 +14,11 @@ function App() {
     (link.rel = "stylesheet"), (link.href = `./css/${theme}.css`);
     head.appendChild(link);
 
-    return ()=>{
+    return () => {
       head.removeChild(link);
-    }
+    };
   }, [theme]);
+
   return (
     <>
       <RouterProvider router={router} />

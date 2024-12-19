@@ -24,5 +24,40 @@
     "loginPasswordError2": "Password must be more than 10 digits",
     "loginBtn": "Login",
     "loginBtnProgress": "In progress..."
-  }
+  },
+  "mainLayout": {
+    "sidebar": {
+      "subtitle": "Online Education Platform",
+      "courseManagement": "Course Management",
+      "allCourses": "All Courses",
+      "coursesCategory": "Courses Category",
+      "courseDiscount": "Course Discount",
+      "userManagement": "User Management",
+      "teacherManagement": "Teacher Management",
+      "studentManagement": "Student Management",
+      "blogManagement": "BlogManagement",
+      "tagManagement": "TagManagement",
+      "postManagement": "PostManagement"
+    }
+  },
+  "categoryList": {
+    "DeleteIsNotPossible": "It is not possible to delete this category",
+    "DuplicateCategory": "The category is duplicate"
+  },
+  "footer": {
+    "classbon": "classbon"
+  },
+  "coursesLayout": {
+    "addButton": "add new course",
+    "addNewCategories": "add new categories"
+  },
+  "loaderString": {
+    "loading": "updating information ..."
+  },
+  "toastNotification": {
+    "deletePending": "Deleting...",
+    "updatePending": "Updating...",
+    "success": "Process successfully done."
+  },
+  "logout": "log out"
 }

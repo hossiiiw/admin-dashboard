@@ -5,9 +5,8 @@ import {
   Register,
   registerAction,
 } from "./features/identify/components/register";
-import { MainLayout } from "./layout/mainLayout";
 import { Courses } from "./pages/courses";
-
+import { MainLayout } from "./layout/mainLayout/mainLayout";
 
 export const router = createBrowserRouter([
   {

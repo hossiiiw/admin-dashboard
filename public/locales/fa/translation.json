@@ -24,5 +24,40 @@
     "loginPasswordError2": "رمز عبور باید بیشتر از 10 رقم باشد",
     "loginBtn": " وارد شوید",
     "loginBtnProgress": "درحال انحام عملیات..."
-  }
+  },
+  "mainLayout": {
+    "sidebar": {
+      "subtitle": "پلتفرم آموزش آنلاین",
+      "courseManagement": "مدیریت دوره ها",
+      "allCourses": "همه دوره ها",
+      "coursesCategory": "دسته بندی دوره ها",
+      "courseDiscount": "تخفیف دوره ها",
+      "userManagement": "مدیریت کاربرها",
+      "teacherManagement": "مدیریت مدرس ها",
+      "studentManagement": "مدیریت دانشجوها",
+      "blogManagement": "مدیریت بلاگ",
+      "tagManagement": "مدیریت تگ ها",
+      "postManagement": "مدیریت پست ها"
+    }
+  },
+  "categoryList": {
+    "DeleteIsNotPossible": "حذف این دسته امکان پذیر نیست",
+    "DuplicateCategory": "اسم دسته تکراری است"
+  },
+  "footer": {
+    "classbon": "کلاسبن"
+  },
+  "coursesLayout": {
+    "addButton": "افزودن دوره جدید",
+    "addNewCategories": "افزودن دسته جدید"
+  },
+  "loaderString": {
+    "loading": "در حال دریافت اطلاعات ..."
+  },
+  "toastNotification": {
+    "deletePending": "در حال حذف ...",
+    "updatePending": "در حال اعمال تغییرات ...",
+    "success": "عملیات با موفقیت انجام شد."
+  },
+  "logout": "خارج شوید"
 }
