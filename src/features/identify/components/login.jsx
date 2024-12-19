@@ -1,7 +1,15 @@
 import logo from "@assets/images/logo.svg";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import {
+  Link,
+  redirect,
+  useActionData,
+  useNavigation,
+  useRouteError,
+  useSubmit,
+} from "react-router-dom";
+import { httpService } from "@core/https-service";
 
 export const Login = () => {
   const {
@@ -10,10 +18,18 @@ export const Login = () => {
     formState: { errors },
   } = useForm();
 
+  const submitForm = useSubmit();
   const onSumbitForm = (data) => {
-    console.log(data);
+    submitForm(data, { method: "post" });
   };
+  //for btn status
+  const navigation = useNavigation();
+  const isSubmetting = navigation.state !== "idle";
 
+  //for error hanlder
+  const isError = useRouteError();
+
+  const isSuccessOperation = useActionData();
   //multi language
   const { t } = useTranslation();
   return (
@@ -76,7 +92,7 @@ export const Login = () => {
                   }`}
                   {...register("password", {
                     required: t("login.loginPasswordError1"),
-                    minLength: 11,
+                    minLength: 5,
                   })}
                 />
 
@@ -95,9 +111,29 @@ export const Login = () => {
               </div>
 
               <div className="text-center mt-3">
-                <button className="btn btn-lg btn-primary" type="sumbit">
-                  {t("login.loginBtn")}
+                <button
+                  disabled={isSubmetting}
+                  className="btn btn-lg btn-primary"
+                  type="sumbit"
+                >
+                  {isSubmetting
+                    ? t("login.loginBtnProgress")
+                    : t("login.loginBtn")}
                 </button>
+
+                {isSuccessOperation && (
+                  <div className="alert alert-success text-success py-2 px-4 mt-3">
+                    {t("register.registerSuccess")}
+                  </div>
+                )}
+
+                {isError && (
+                  <div className="alert alert-danger text-danger py-2 px-4 mt-3">
+                    {isError.response?.data.map((error) => {
+                      return <p>{error.description}</p>;
+                    })}
+                  </div>
+                )}
               </div>
             </form>
           </div>
@@ -105,4 +141,14 @@ export const Login = () => {
       </div>
     </>
   );
+};
+
+export const loginAction = async ({ request }) => {
+  const formData = await request.formData();
+  const data = Object.fromEntries(formData);
+  const response = await httpService.post("/Users/login", data);
+  if (response.status === 200) {
+    localStorage.setItem("token", response?.data.token);
+    return redirect("/");
+  }
 };

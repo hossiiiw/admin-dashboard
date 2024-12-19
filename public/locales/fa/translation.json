@@ -22,6 +22,7 @@
     "loginMobileError2": " شماره موبایل باید 11 رقمی باشد",
     "loginPasswordError1": "رمز عبور الزامی است",
     "loginPasswordError2": "رمز عبور باید بیشتر از 10 رقم باشد",
-    "loginBtn": " وارد شوید"
+    "loginBtn": " وارد شوید",
+    "loginBtnProgress": "درحال انحام عملیات..."
   }
 }

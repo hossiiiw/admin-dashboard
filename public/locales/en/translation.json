@@ -22,6 +22,7 @@
     "loginMobileError2": "Mobile number must be 11 digits",
     "loginPasswordError1": "Password is required",
     "loginPasswordError2": "Password must be more than 10 digits",
-    "loginBtn": "Login"
+    "loginBtn": "Login",
+    "loginBtnProgress": "In progress..."
   }
 }

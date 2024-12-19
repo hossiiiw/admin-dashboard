@@ -8,7 +8,7 @@ import {
   useRouteError,
   useSubmit,
 } from "react-router-dom";
-import { httpService } from "../../../core/https-service";
+import { httpService } from "@core/https-service";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 export const Register = () => {
@@ -42,7 +42,7 @@ export const Register = () => {
   useEffect(() => {
     if (isSuccessOperation) {
       setTimeout(() => {
-        navigate("/");
+        navigate("/login");
       }, 2000);
     }
   }, [isSuccessOperation]);
@@ -54,7 +54,7 @@ export const Register = () => {
         <p className="lead">{t("register.registerTitle")}</p>
         <p className="lead">
           {t("register.registerLogIn")}
-          <Link to="/" className="me-2">
+          <Link to="/login" className="me-2">
             {t("register.registerLog")}
           </Link>
         </p>
