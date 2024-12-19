@@ -1,5 +1,6 @@
 import logo from "@assets/images/logo.svg";
 import { useForm } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 export const Login = () => {
@@ -12,18 +13,19 @@ export const Login = () => {
   const onSumbitForm = (data) => {
     console.log(data);
   };
+
+  //multi language
+  const { t } = useTranslation();
   return (
     <>
       <div className="text-center mt-4">
         <img src={logo} alt="logo" style={{ height: "100px" }} />
-        <h1 className="h2">پلتفرم آموزش آنلاین</h1>
+        <h1 className="h2">{t("register.registerName")}</h1>
+        <p className="lead">{t("register.registerTitle")}</p>
         <p className="lead">
-          جهت ورود لازم است از طریق موبایل و رمز عبور خود اقدام کنید
-        </p>
-        <p className="lead">
-          قبلا ثبت نام نکرده اید؟
+          {t("register.registerLogIn")}
           <Link to="/register" className="me-2">
-            ثبت نام کنید{" "}
+            {t("register.registerBtn")}
           </Link>
         </p>
       </div>
@@ -33,14 +35,16 @@ export const Login = () => {
           <div className="m-sm-4">
             <form onSubmit={handleSubmit(onSumbitForm)}>
               <div className="mb-3">
-                <label htmlFor="form-label">موبایل</label>
+                <label htmlFor="form-label">
+                  {t("register.registerMobile")}
+                </label>
                 <input
                   type="tel"
                   className={`form-control form-control-lg mt-2 ${
                     errors && "is-invalid"
                   }`}
                   {...register("mobile", {
-                    required: "وارد کردن شماره موبایل الزامی است",
+                    required: t("login.loginMobileError1"),
                     minLength: 11,
                     maxLength: 11,
                   })}
@@ -56,20 +60,22 @@ export const Login = () => {
                   (errors.mobile.type === "minLength" ||
                     errors.mobile.type === "maxLength") && (
                     <p className="text-danger small fw-bold mt-2">
-                      شماره موبایل باید 11 رقمی باشد
+                      {t("login.loginMobileError2")}
                     </p>
                   )}
               </div>
               {/*  */}
               <div className="mb-3">
-                <lable className="fomr-label">رمز عبور</lable>
+                <lable className="fomr-label">
+                  {t("register.registerPassword")}
+                </lable>
                 <input
                   type="password"
                   className={`form-control form-control-lg mt-2 ${
                     errors && "is-invalid"
                   }`}
                   {...register("password", {
-                    required: "رمز عبور را وارد نمایید",
+                    required: t("login.loginPasswordError1"),
                     minLength: 11,
                   })}
                 />
@@ -83,14 +89,14 @@ export const Login = () => {
                 {errors.password && errors.password.type === "minLength" && (
                   <p className="text-danger small fw-bold mt-2">
                     {" "}
-                    رمز عبور باید بیشتر از 10 رقم باشد
+                    {t("login.loginPasswordError2")}
                   </p>
                 )}
               </div>
 
               <div className="text-center mt-3">
                 <button className="btn btn-lg btn-primary" type="sumbit">
-                  وارد شوید
+                  {t("login.loginBtn")}
                 </button>
               </div>
             </form>

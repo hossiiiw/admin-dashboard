@@ -157,13 +157,14 @@ export const Register = () => {
                   className="btn btn-lg btn-primary"
                   type="sumbit"
                 >
-                  {t("register.registerBtn")}
-                  {/* {isSubmetting ? "درحال انجام عملیات" : "وارد شوید"} */}
+                  {isSubmetting
+                    ? t("register.registerBtnProgress")
+                    : t("register.registerBtn")}
                 </button>
 
                 {isSuccessOperation && (
                   <div className="alert alert-success text-success p-2 mt-3">
-                    عملیات با موفقیت انحام شد به صفحه ورود منتقل می شوید
+                    {t("register.registerSuccess")}
                   </div>
                 )}
 

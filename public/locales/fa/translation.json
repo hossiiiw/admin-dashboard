@@ -1,6 +1,7 @@
 {
   "register": {
     "registerBtn": "ثبت نام کنید",
+    "registerBtnProgress": "درحال انجام عملیات",
     "registerName": "پلتفرم آموزش آنلاین",
     "registerTitle": "جهت ورود لازم است از طریق موبایل و رمز عبور خود اقدام کنید",
     "registerLogIn": "قبلا ثبت نام کرده اید؟",
@@ -13,6 +14,14 @@
     "registerPasswordError1": "پسورد صحیح نمی باشد",
     "registerPasswordError2": "رمز وارد شده کوتاه است",
     "registerConfirmError1": "تکرار رمز عبور الزامی است",
-    "registerConfirmError2": "رمز عبور با تکرار رمز عبور مطابقت ندارد"
+    "registerConfirmError2": "رمز عبور با تکرار رمز عبور مطابقت ندارد",
+    "registerSuccess": " عملیات با موفقیت انحام شد به صفحه ورود منتقل می شوید"
+  },
+  "login": {
+    "loginMobileError1": "وارد کردن شماره موبایل الزامی است",
+    "loginMobileError2": " شماره موبایل باید 11 رقمی باشد",
+    "loginPasswordError1": "رمز عبور الزامی است",
+    "loginPasswordError2": "رمز عبور باید بیشتر از 10 رقم باشد",
+    "loginBtn": " وارد شوید"
   }
 }
