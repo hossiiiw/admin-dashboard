@@ -5,11 +5,13 @@ import {
   Link,
   redirect,
   useActionData,
+  useNavigate,
   useNavigation,
   useRouteError,
   useSubmit,
 } from "react-router-dom";
 import { httpService } from "@core/https-service";
+import { useEffect } from "react";
 
 export const Login = () => {
   const {
@@ -25,6 +27,16 @@ export const Login = () => {
   //for btn status
   const navigation = useNavigation();
   const isSubmetting = navigation.state !== "idle";
+
+  //redirect to page
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      navigate("/");
+    }
+  });
 
   //for error hanlder
   const isError = useRouteError();

@@ -25,7 +25,6 @@ export const MainLayout = () => {
           <Footer />
         </div>
       </div>
-      {console.log(token)}
     </>
   );
 };

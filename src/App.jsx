@@ -6,7 +6,7 @@ import { useAppContext } from "./context/app/app-context";
 import { useEffect } from "react";
 
 function App() {
-  const { language, theme } = useAppContext();
+  const { theme } = useAppContext();
 
   useEffect(() => {
     const head = document.head;
