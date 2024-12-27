@@ -1,7 +1,7 @@
 import { TopNav } from "./topNav";
 import { Sidebar } from "./sidebar";
 import { Footer } from "./footer";
-import { Navigate, Outlet, useNavigate } from "react-router-dom";
+import {  Outlet, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 export const MainLayout = () => {

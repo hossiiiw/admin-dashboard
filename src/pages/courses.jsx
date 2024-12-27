@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { httpsIntercepterService } from "../core/https-service";
 import { CourseList } from "../features/courses/components/course-list";
 
-
 export const Courses = () => {
   return (
     <>
@@ -20,7 +19,7 @@ export const Courses = () => {
   );
 };
 
-export  const coursesLoader = async () => {
-  const response = await httpsIntercepterService.get("/Course/list")
-  return response.data
+export const coursesLoader = async () => {
+  const response = await httpsIntercepterService.get("/Course/list");
+  return response.data;
 };
