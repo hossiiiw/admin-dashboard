@@ -36,7 +36,7 @@ export const Login = () => {
     if (token) {
       navigate("/");
     }
-  });
+  }, []);
 
   //for error hanlder
   const isError = useRouteError();
